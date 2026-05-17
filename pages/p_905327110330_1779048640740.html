@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deniz Seyahat - Diş Kliniği</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.08);}
+.nav-container{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,#0077b6,#00b4d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{text-decoration:none;color:#333;font-weight:500;font-size:0.95rem;transition:color .2s;}
+.nav-links a:hover{color:#0077b6;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:#0077b6;}
+.hero{min-height:100vh;background:linear-gradient(135deg,#e0f7fa 0%,#b2ebf2 40%,#e3f2fd 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;}
+.hero-inner{max-width:700px;}
+.hero-badge{display:inline-block;background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:6px 18px;border-radius:50px;font-size:0.8rem;font-weight:600;letter-spacing:1px;margin-bottom:24px;}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.2;color:#0d1b2a;margin-bottom:20px;}
+.hero h1 span{background:linear-gradient(135deg,#0077b6,#00b4d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:1.1rem;color:#444;margin-bottom:36px;line-height:1.7;}
+.btn{display:inline-block;padding:14px 36px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .3s;cursor:pointer;border:none;}
+.btn-primary{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;box-shadow:0 8px 24px rgba(0,119,182,0.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,119,182,0.45);}
+.btn-outline{background:transparent;color:#0077b6;border:2px solid #0077b6;margin-left:12px;}
+.btn-outline:hover{background:#0077b6;color:#fff;}
+.hero-icons{display:flex;justify-content:center;gap:40px;margin-top:48px;}
+.hero-icon-item{text-align:center;}
+.hero-icon-item .icon-circle{width:60px;height:60px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;box-shadow:0 4px 16px rgba(0,119,182,0.15);font-size:1.5rem;}
+.hero-icon-item span{font-size:0.8rem;color:#555;font-weight:600;}
+section{padding:80px 24px;}
+.section-title{text-align:center;margin-bottom:56px;}
+.section-title h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#0d1b2a;margin-bottom:10px;}
+.section-title p{color:#666;font-size:1rem;}
+.section-title .line{width:50px;height:4px;background:linear-gradient(135deg,#0077b6,#00b4d8);border-radius:2px;margin:12px auto 0;}
+.services{background:#f8fbff;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:1000px;margin:0 auto;}
+.card{background:#fff;border-radius:20px;padding:36px 28px;box-shadow:0 4px 24px rgba(0,0,0,0.07);transition:all .3s;border:1px solid #e8f4fd;}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,119,182,0.15);}
+.card-icon{width:64px;height:64px;background:linear-gradient(135deg,#0077b6,#00b4d8);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:20px;}
+.card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:#0d1b2a;}
+.card p{color:#666;font-size:0.92rem;line-height:1.6;}
+.about{background:#fff;}
+.about-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.about-visual{background:linear-gradient(135deg,#0077b6,#00b4d8);border-radius:24px;padding:48px 32px;text-align:center;color:#fff;}
+.about-visual .big-icon{font-size:5rem;margin-bottom:16px;}
+.about-visual h3{font-size:1.4rem;font-weight:700;margin-bottom:8px;}
+.about-visual p{font-size:0.9rem;opacity:0.85;}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+.stat{background:rgba(255,255,255,0.15);border-radius:12px;padding:16px;text-align:center;}
+.stat .num{font-size:1.8rem;font-weight:800;}
+.stat .lbl{font-size:0.75rem;opacity:0.85;}
+.about-text h2{font-size:1.9rem;font-weight:800;color:#0d1b2a;margin-bottom:16px;}
+.about-text p{color:#555;line-height:1.8;margin-bottom:20px;}
+.about-list{list-style:none;}
+.about-list li{padding:8px 0;color:#444;font-size:0.95rem;display:flex;align-items:center;gap:10px;}
+.about-list li i{color:#0077b6;font-size:0.9rem;}
+.contact{background:linear-gradient(135deg,#e0f7fa,#e3f2fd);}
+.contact-inner{max-width:700px;margin:0 auto;}
+.contact-form{background:#fff;border-radius:24px;padding:40px;box-shadow:0 8px 32px rgba(0,0,0,0.08);}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;font-weight:600;margin-bottom:6px;color:#333;font-size:0.9rem;}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border:2px solid #e8f0fe;border-radius:10px;font-size:0.95rem;font-family:'Inter',sans-serif;transition:border .2s;outline:none;}
+.form-group input:focus,.form-group textarea:focus{border-color:#0077b6;}
+.form-group textarea{height:110px;resize:vertical;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.btn-submit{width:100%;padding:14px;background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;border:none;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;transition:all .3s;}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,119,182,0.35);}
+.contact-info{display:flex;justify-content:center;gap:32px;margin-top:32px;flex-wrap:wrap;}
+.info-item{display:flex;align-items:center;gap:10px;color:#555;font-size:0.9rem;}
+.info-item i{color:#0077b6;font-size:1.1rem;}
+footer{background:#0d1b2a;color:#aaa;text-align:center;padding:28px 24px;font-size:0.88rem;}
+footer span{color:#00b4d8;font-weight:600;}
+.whatsapp-btn{position:fixed;bottom:28px;right:28px;width:58px;height:58px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,0.45);z-index:999;transition:all .3s;}
+.whatsapp-btn:hover{transform:scale(1.1);}
+@media(max-width:768px){
+.hamburger{display:block;}
+.nav-links{display:none;flex-direction:column;position:absolute;top:68px;left:0;width:100%;background:#fff;padding:20px 24px;box-shadow:0 8px 24px rgba(0,0,0,0.1);gap:16px;}
+.nav-links.active{display:flex;}
+.about-inner{grid-template-columns:1fr;}
+.form-row{grid-template-columns:1fr;}
+.hero-icons{gap:20px;}
+.btn-outline{margin-left:0;margin-top:12px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <div class="logo">🦷 Deniz Seyahat</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Ana Sayfa</a></li>
+      <li><a href="#services">Hizmetler</a></li>
+      <li><a href="#about">Hakkımızda</a></li>
+      <li><a href="#contact">İletişim</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menüyü aç" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">✨ Profesyonel Diş Sağlığı</div>
+    <h1>Sağlıklı Gülüşler İçin <span>Doğru Adres</span></h1>
+    <p>Modern teknoloji ve uzman kadromuzla ağız sağlığınızı en iyi şekilde koruyoruz.</p>
+    <div>
+      <a href="#contact" class="btn btn-primary">Randevu Al</a>
+      <a href="#services" class="btn btn-outline">Hizmetlerimiz</a>
+    </div>
+    <div class="hero-icons">
+      <div class="hero-icon-item">
+        <div class="icon-circle">🦷</div>
+        <span>Uzman Ekip</span>
+      </div>
+      <div class="hero-icon-item">
+        <div class="icon-circle">🏥</div>
+        <span>Modern Klinik</span>
+      </div>
+      <div class="hero-icon-item">
+        <div class="icon-circle">💎</div>
+        <span>Kaliteli Hizmet</span>
+      </div>
+      <div class="hero-icon-item">
+        <div class="icon-circle">❤️</div>
+        <span>Güvenli Tedavi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-title">
+    <h2>Hizmetlerimiz</h2>
+    <p>Size özel tedavi seçenekleri</p>
+    <div class="line"></div>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">😁</div>
+      <h3>Estetik Diş Hekimliği</h3>
+      <p>Gülüş tasarımı ve beyazlatma ile hayalinizdeki gülüşe kavuşun.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔬</div>
+      <h3>İmplant Tedavisi</h3>
+      <p>Eksik dişlerinizi doğal görünümlü implantlarla yeniden kazanın.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Koruyucu Diş Hekimliği</h3>
+      <p>Düzenli kontrol ve temizlikle ağız sağlığınızı koruma altına alın.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-visual">
+      <div class="big-icon">🦷</div>
+      <h3>Deniz Seyahat Diş Kliniği</h3>
+      <p>Sağlıklı gülüşler için yanınızdayız</p>
+      <div class="about-stats">
+        <div class="stat"><div class="num">10+</div><div class="lbl">Yıl Deneyim</div></div>
+        <div class="stat"><div class="num">5K+</div><div class="lbl">Mutlu Hasta</div></div>
+        <div class="stat"><div class="num">3</div><div class="lbl">Uzman Hekim</div></div>
+        <div class="stat"><div class="num">%100</div><div class="lbl">Memnuniyet</div></div>
+      </div>
+    </div>
+    <div class="about-text">
+      <h2>Neden Biz?</h2>
+      <p>Deniz Seyahat Diş Kliniği olarak, modern teknoloji ve deneyimli uzman kadromuzla her hastamıza güvenli, konforlu ve kaliteli diş sağlığı hizmeti sunuyoruz.</p>
+      <ul class="about-list">
+        <li><i class="fas fa-check-circle"></i> Güncel teknoloji ve steril ortam</li>
+        <li><i class="fas fa-check-circle"></i> Deneyimli ve uzman diş hekimleri</li>
+        <li><i class="fas fa-check-circle"></i> Kişiye özel tedavi planlaması</li>
+        <li><i class="fas fa-check-circle"></i> Ağrısız ve konforlu tedavi</li>
+        <li><i class="fas fa-check-circle"></i> Uygun fiyat ve ödeme seçenekleri</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-title">
+    <h2>Randevu Alın</h2>
+    <p>Size en kısa sürede dönüş yapacağız</p>
+    <div class="line"></div>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-form">
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Adınız Soyadınız</label>
+            <input type="text" id="fname" placeholder="Ad Soyad" required>
+          </div>
+          <div class="form-group">
+            <label>Telefon Numaranız</label>
+            <input type="tel" id="fphone" placeholder="05XX XXX XX XX" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Hizmet Seçin</label>
+          <select id="fservice">
+            <option value="">Hizmet seçiniz...</option>
+            <option>Estetik Diş Hekimliği</option>
+            <option>İmplant Tedavisi</option>
+            <option>Koruyucu Diş Hekimliği</option>
+            <option>Diğer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mesajınız</label>
+          <textarea id="fmessage" placeholder="Bize iletmek istediğiniz bilgileri yazın..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit"><i class="fab fa-whatsapp"></i> WhatsApp ile Randevu Al</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <div class="info-item"><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</div>
+      <div class="info-item"><i class="fas fa-phone"></i> +90 (XXX) XXX XX XX</div>
+      <div class="info-item"><i class="fas fa-clock"></i> Pzt–Cmt: 09:00–19:00</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 <span>Deniz Seyahat Diş Kliniği</span> — Tüm hakları saklıdır.</p>
+</footer>
+
+<a href="https://wa.me/90905327110330" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  hamburger.querySelector('i').classList.toggle('fa-bars');
+  hamburger.querySelector('i').classList.toggle('fa-times');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.querySelector('i').classList.add('fa-bars');
+    hamburger.querySelector('i').classList.remove('fa-times');
+  });
+});
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const service = document.getElementById('fservice').value;
+  const message = document.getElementById('fmessage').value.trim();
+  if (!name || !phone) { alert('Lütfen ad ve telefon bilgilerinizi girin.'); return; }
+  const text = `Merhaba, randevu almak istiyorum.%0AAd Soyad: ${encodeURIComponent(name)}%0ATelefon: ${encodeURIComponent(phone)}%0AHizmet: ${encodeURIComponent(service || 'Belirtilmedi')}%0AMesaj: ${encodeURIComponent(message || 'Yok')}`;
+  window.open(`https://wa.me/90905327110330?text=${text}`, '_blank');
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
