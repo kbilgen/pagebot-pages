@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deniz Yüzme Okulları</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;color:#1a2a4a;background:#fff;}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 20px rgba(0,100,200,0.1);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.3rem;font-weight:800;color:#0057b8;letter-spacing:-0.5px;}
+.logo span{color:#00b4d8;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{text-decoration:none;color:#1a2a4a;font-weight:500;font-size:.95rem;transition:color .2s;}
+.nav-links a:hover{color:#0057b8;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:#0057b8;}
+.hero{min-height:100vh;background:linear-gradient(135deg,#0057b8 0%,#0096c7 50%,#00b4d8 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;bottom:-60px;left:0;right:0;height:120px;background:#fff;clip-path:ellipse(55% 100% at 50% 100%);}
+.wave-bg{position:absolute;top:0;left:0;right:0;bottom:0;opacity:.08;}
+.wave-bg::after{content:'🌊';font-size:300px;position:absolute;bottom:-40px;right:-40px;}
+.hero-content{position:relative;z-index:1;max-width:700px;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;padding:6px 18px;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:20px;border:1px solid rgba(255,255,255,0.3);}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:18px;}
+.hero h1 span{color:#caf0f8;}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,0.9);margin-bottom:36px;font-weight:300;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .25s;cursor:pointer;border:none;}
+.btn-white{background:#fff;color:#0057b8;}
+.btn-white:hover{background:#caf0f8;transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.15);}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.7);margin-left:12px;}
+.btn-outline:hover{background:rgba(255,255,255,0.15);}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+section{padding:80px 24px;}
+.container{max-width:1100px;margin:0 auto;}
+.section-tag{font-size:.8rem;font-weight:700;color:#0096c7;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;}
+.section-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#1a2a4a;margin-bottom:12px;}
+.section-sub{color:#5a7a9a;font-size:1rem;margin-bottom:48px;}
+.services{background:#f0f8ff;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.card{background:#fff;border-radius:20px;padding:36px 28px;box-shadow:0 4px 24px rgba(0,87,184,0.08);transition:all .25s;border:1px solid #e0f0ff;}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,87,184,0.15);}
+.card-icon{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#0057b8,#00b4d8);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:20px;color:#fff;}
+.card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:#1a2a4a;}
+.card p{color:#5a7a9a;font-size:.92rem;line-height:1.6;}
+.about{background:#fff;}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-visual{background:linear-gradient(135deg,#0057b8,#00b4d8);border-radius:24px;height:320px;display:flex;align-items:center;justify-content:center;font-size:7rem;position:relative;overflow:hidden;}
+.about-visual::after{content:'';position:absolute;bottom:-30px;right:-30px;width:150px;height:150px;background:rgba(255,255,255,0.1);border-radius:50%;}
+.about-text .section-tag{display:block;}
+.about-text p{color:#5a7a9a;line-height:1.8;font-size:1rem;margin-bottom:28px;}
+.stats{display:flex;gap:32px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat strong{display:block;font-size:2rem;font-weight:800;color:#0057b8;}
+.stat span{font-size:.8rem;color:#5a7a9a;font-weight:500;}
+.contact{background:linear-gradient(135deg,#0057b8 0%,#0096c7 100%);}
+.contact .section-tag,.contact .section-title,.contact .section-sub{color:rgba(255,255,255,0.9);}
+.contact .section-title{color:#fff;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.contact-card{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:32px;backdrop-filter:blur(10px);transition:all .25s;}
+.contact-card:hover{background:rgba(255,255,255,0.2);}
+.contact-card i{font-size:2rem;color:#caf0f8;margin-bottom:16px;}
+.contact-card h4{color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+.contact-card a{color:#caf0f8;text-decoration:none;font-size:1rem;font-weight:600;}
+.contact-card a:hover{color:#fff;}
+.contact-form{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:32px;backdrop-filter:blur(10px);}
+.contact-form h4{color:#fff;font-size:1.2rem;font-weight:700;margin-bottom:20px;}
+.form-group{margin-bottom:16px;}
+.form-group input,.form-group textarea{width:100%;padding:12px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.15);color:#fff;font-family:'Poppins',sans-serif;font-size:.9rem;outline:none;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.6);}
+.form-group textarea{height:90px;resize:none;}
+.btn-send{width:100%;background:#fff;color:#0057b8;font-weight:700;padding:13px;border-radius:10px;border:none;cursor:pointer;font-size:1rem;font-family:'Poppins',sans-serif;transition:all .25s;}
+.btn-send:hover{background:#caf0f8;transform:translateY(-2px);}
+footer{background:#0a1628;color:rgba(255,255,255,0.6);text-align:center;padding:28px 24px;font-size:.88rem;}
+footer strong{color:#00b4d8;}
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:999;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;transition:all .25s;}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.7);}
+@media(max-width:768px){
+.hamburger{display:block;}
+.nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;gap:16px;box-shadow:0 8px 24px rgba(0,0,0,0.1);}
+.nav-links.active{display:flex;}
+.about-inner{grid-template-columns:1fr;}
+.about-visual{height:200px;font-size:4rem;}
+.contact-grid{grid-template-columns:1fr;}
+.btn-outline{margin-left:0;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Deniz <span>Yüzme</span> Okulları</div>
+    <button class="hamburger" aria-label="Menüyü aç"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Ana Sayfa</a></li>
+      <li><a href="#hizmetler">Hizmetler</a></li>
+      <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="wave-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🏊 Profesyonel Yüzme Eğitimi</div>
+    <h1>Suyla <span>Güvenle</span> Buluşun</h1>
+    <p>Her yaşa özel, uzman eğitmenlerle güvenli ve eğlenceli yüzme dersleri.</p>
+    <div class="hero-btns">
+      <a href="#hizmetler" class="btn btn-white"><i class="fas fa-swimmer"></i> Hizmetleri Gör</a>
+      <a href="https://wa.me/905465655980" class="btn btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="hizmetler">
+  <div class="container" style="text-align:center;">
+    <div class="section-tag">Hizmetlerimiz</div>
+    <h2 class="section-title">Size Özel Eğitim Programları</h2>
+    <p class="section-sub">Her seviyeye uygun, uzman eğitmenler eşliğinde.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-child"></i></div>
+        <h3>Çocuk Yüzme Kursu</h3>
+        <p>4 yaş ve üzeri çocuklara özel, oyun temelli ve güvenli yüzme eğitimi.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-user"></i></div>
+        <h3>Yetişkin Yüzme Kursu</h3>
+        <p>Başlangıçtan ileri seviyeye, yetişkinlere özel bireysel ve grup dersleri.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-trophy"></i></div>
+        <h3>Yarışmacı Yüzme Eğitimi</h3>
+        <p>Performansını zirveye taşımak isteyen sporcular için profesyonel antrenman programı.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="hakkimizda">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual">🌊</div>
+      <div class="about-text">
+        <span class="section-tag">Hakkımızda</span>
+        <h2 class="section-title">Neden Biz?</h2>
+        <p>Deniz Yüzme Okulları olarak, alanında uzman eğitmenlerimiz ve modern tesislerimizle her yaştan bireye güvenli, etkili ve keyifli yüzme eğitimi sunuyoruz. Yüzmeyi sadece bir spor değil, yaşam boyu taşınan bir beceri olarak öğretiyoruz.</p>
+        <div class="stats">
+          <div class="stat"><strong>500+</strong><span>Mezun Öğrenci</span></div>
+          <div class="stat"><strong>10+</strong><span>Yıl Deneyim</span></div>
+          <div class="stat"><strong>%98</strong><span>Memnuniyet</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="iletisim">
+  <div class="container" style="text-align:center;">
+    <div class="section-tag">İletişim</div>
+    <h2 class="section-title">Hemen Ulaşın</h2>
+    <p class="section-sub" style="margin-bottom:40px;">Sorularınız için bize her zaman ulaşabilirsiniz.</p>
+    <div class="contact-grid" style="max-width:800px;margin:0 auto 32px;">
+      <div class="contact-card">
+        <i class="fas fa-phone"></i>
+        <h4>Telefon</h4>
+        <a href="tel:+905465655980">+90 546 565 59 80</a>
+      </div>
+      <div class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <h4>WhatsApp</h4>
+        <a href="https://wa.me/905465655980" target="_blank">+90 546 565 59 80</a>
+      </div>
+    </div>
+    <div class="contact-form" style="max-width:500px;margin:0 auto;text-align:left;">
+      <h4>📩 Mesaj Gönderin</h4>
+      <form id="contactForm">
+        <div class="form-group"><input type="text" id="fname" placeholder="Adınız Soyadınız" required></div>
+        <div class="form-group"><input type="tel" id="fphone" placeholder="Telefon Numaranız"></div>
+        <div class="form-group"><textarea id="fmsg" placeholder="Mesajınız..."></textarea></div>
+        <button type="submit" class="btn-send"><i class="fab fa-whatsapp"></i> WhatsApp ile Gönder</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 <strong>Deniz Yüzme Okulları</strong> — Tüm hakları saklıdır. | <a href="tel:+905465655980" style="color:#00b4d8;text-decoration:none;">+90 546 565 59 80</a></p>
+</footer>
+
+<a href="https://wa.me/905465655980" class="wa-float" target="_blank" aria-label="WhatsApp ile iletişim">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const msg = document.getElementById('fmsg').value.trim();
+    const text = encodeURIComponent('Merhaba, ben ' + name + (phone ? ' (' + phone + ')' : '') + '. ' + (msg || 'Bilgi almak istiyorum.'));
+    window.open('https://wa.me/905465655980?text=' + text, '_blank');
+  });
+</script>
+</body>
+</html>
