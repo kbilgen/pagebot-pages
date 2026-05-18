@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ŞahinK Halı Kilim Trave</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden;}
+:root{--red:#e31e24;--yellow:#f5c518;--dark:#0a0a0a;--card:#1a1a1a;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);border-bottom:2px solid var(--red);}
+.nav-inner{max-width:1100px;margin:auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:65px;}
+.logo{font-size:1.3rem;font-weight:900;background:linear-gradient(135deg,var(--yellow),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:30px;list-style:none;}
+.nav-links a{color:#ccc;text-decoration:none;font-size:.9rem;font-weight:500;transition:.3s;}
+.nav-links a:hover{color:var(--yellow);}
+.hamburger{display:none;background:none;border:2px solid var(--yellow);color:var(--yellow);padding:6px 10px;border-radius:6px;cursor:pointer;font-size:1.1rem;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 20px 60px;background:linear-gradient(135deg,#0a0a0a 0%,#1a0000 40%,#2a0a00 70%,#0a0a0a 100%);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at center,rgba(229,30,36,0.15) 0%,transparent 60%);animation:pulse 4s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+.hero-badge{display:inline-block;background:linear-gradient(135deg,var(--yellow),var(--red));color:#fff;font-size:.75rem;font-weight:700;padding:6px 18px;border-radius:50px;margin-bottom:20px;letter-spacing:2px;text-transform:uppercase;}
+.hero h1{font-size:clamp(2.2rem,6vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:20px;}
+.hero h1 span{background:linear-gradient(135deg,var(--yellow),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:1.1rem;color:#bbb;max-width:500px;margin:0 auto 35px;}
+.btn-primary{display:inline-block;background:linear-gradient(135deg,var(--red),#a00);color:#fff;padding:14px 36px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:.3s;border:none;cursor:pointer;margin:6px;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(229,30,36,0.5);}
+.btn-outline{display:inline-block;border:2px solid var(--yellow);color:var(--yellow);padding:12px 34px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:.3s;margin:6px;}
+.btn-outline:hover{background:var(--yellow);color:#000;transform:translateY(-3px);}
+.hero-stats{display:flex;gap:40px;justify-content:center;margin-top:50px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-size:2rem;font-weight:900;background:linear-gradient(135deg,var(--yellow),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.stat-label{font-size:.8rem;color:#888;margin-top:2px;}
+
+/* SERVICES */
+.section{padding:80px 20px;max-width:1100px;margin:auto;}
+.section-title{text-align:center;margin-bottom:50px;}
+.section-title h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;}
+.section-title h2 span{background:linear-gradient(135deg,var(--yellow),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.section-title p{color:#888;margin-top:8px;font-size:.95rem;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+.card{background:var(--card);border-radius:16px;padding:35px 25px;border:1px solid #222;transition:.3s;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(135deg,var(--yellow),var(--red));}
+.card:hover{transform:translateY(-8px);border-color:var(--red);box-shadow:0 20px 40px rgba(229,30,36,0.2);}
+.card-icon{font-size:2.8rem;margin-bottom:18px;display:block;}
+.card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:var(--yellow);}
+.card p{color:#999;font-size:.9rem;line-height:1.6;}
+.card-tag{display:inline-block;background:rgba(229,30,36,0.15);color:var(--red);font-size:.75rem;padding:4px 12px;border-radius:20px;margin-top:15px;border:1px solid rgba(229,30,36,0.3);}
+
+/* ABOUT */
+.about-wrap{background:linear-gradient(135deg,#111 0%,#1a0000 50%,#111 100%);border-radius:20px;padding:60px 40px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;border:1px solid #222;}
+.about-visual{display:flex;align-items:center;justify-content:center;}
+.about-shape{width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,var(--yellow),var(--red));display:flex;align-items:center;justify-content:center;font-size:5rem;box-shadow:0 0 60px rgba(229,30,36,0.4);}
+.about-text h2{font-size:2rem;font-weight:900;margin-bottom:15px;}
+.about-text h2 span{background:linear-gradient(135deg,var(--yellow),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.about-text p{color:#bbb;line-height:1.8;margin-bottom:20px;}
+.about-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.about-list li{display:flex;align-items:center;gap:10px;color:#ccc;font-size:.9rem;}
+.about-list li i{color:var(--yellow);font-size:.9rem;}
+
+/* CONTACT */
+.contact-bg{background:#111;padding:80px 20px;}
+.contact-inner{max-width:900px;margin:auto;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:40px;}
+.contact-card{background:var(--card);border-radius:16px;padding:30px;border:1px solid #222;text-align:center;transition:.3s;}
+.contact-card:hover{border-color:var(--yellow);transform:translateY(-5px);}
+.contact-card i{font-size:2.2rem;margin-bottom:15px;display:block;}
+.contact-card h3{font-weight:700;margin-bottom:8px;color:var(--yellow);}
+.contact-card p{color:#999;font-size:.9rem;margin-bottom:15px;}
+.contact-card a{display:inline-block;background:linear-gradient(135deg,var(--red),#a00);color:#fff;padding:10px 24px;border-radius:50px;font-weight:600;font-size:.9rem;text-decoration:none;transition:.3s;}
+.contact-card a:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(229,30,36,0.4);}
+.wa-card a{background:linear-gradient(135deg,#25d366,#128c7e);}
+.wa-card a:hover{box-shadow:0 8px 20px rgba(37,211,102,0.4);}
+.form-box{background:var(--card);border-radius:16px;padding:35px;border:1px solid #222;margin-top:30px;}
+.form-box h3{font-size:1.3rem;font-weight:700;margin-bottom:20px;color:var(--yellow);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px;}
+.form-box input,.form-box textarea{width:100%;background:#0a0a0a;border:1px solid #333;border-radius:10px;padding:12px 16px;color:#fff;font-family:'Poppins',sans-serif;font-size:.9rem;transition:.3s;}
+.form-box input:focus,.form-box textarea:focus{outline:none;border-color:var(--red);}
+.form-box textarea{height:100px;resize:none;margin-bottom:15px;}
+.form-box button{width:100%;background:linear-gradient(135deg,var(--red),#a00);color:#fff;border:none;padding:14px;border-radius:50px;font-weight:700;font-size:1rem;cursor:pointer;transition:.3s;}
+.form-box button:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(229,30,36,0.4);}
+
+/* FOOTER */
+footer{background:#050505;border-top:2px solid var(--red);padding:30px 20px;text-align:center;}
+footer .logo{font-size:1.5rem;display:block;margin-bottom:10px;}
+footer p{color:#555;font-size:.85rem;}
+footer a{color:var(--yellow);text-decoration:none;}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:25px;right:25px;z-index:9999;background:linear-gradient(135deg,#25d366,#128c7e);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#fff;text-decoration:none;box-shadow:0 5px 20px rgba(37,211,102,0.5);animation:bounce 2s infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* MOBILE */
+@media(max-width:768px){
+.hamburger{display:block;}
+.nav-links{display:none;flex-direction:column;position:absolute;top:65px;left:0;right:0;background:#0a0a0a;padding:20px;border-bottom:2px solid var(--red);gap:15px;}
+.nav-links.active{display:flex;}
+.about-wrap{grid-template-columns:1fr;text-align:center;}
+.about-visual{margin-bottom:20px;}
+.contact-grid{grid-template-columns:1fr;}
+.form-row{grid-template-columns:1fr;}
+.hero-stats{gap:25px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">🏆 ŞahinK</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hizmetler" class="nav-link">Hizmetler</a></li>
+      <li><a href="#hakkimizda" class="nav-link">Hakkımızda</a></li>
+      <li><a href="#iletisim" class="nav-link">İletişim</a></li>
+      <li><a href="https://wa.me/9032476975580" target="_blank" style="color:var(--yellow);font-weight:700;">📞 Randevu Al</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div style="position:relative;z-index:2;">
+    <div class="hero-badge">⭐ Profesyonel Koçluk Hizmeti</div>
+    <h1>Başarıya Giden<br><span>Doğru Rehber</span></h1>
+    <p>Hedeflerinize ulaşmak için kişiselleştirilmiş koçluk desteği alın. Potansiyelinizi keşfedin.</p>
+    <div>
+      <a href="https://wa.me/9032476975580" class="btn-primary" target="_blank">
+        <i class="fab fa-whatsapp"></i> Randevu Al
+      </a>
+      <a href="#hizmetler" class="btn-outline">Hizmetleri Gör</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Mutlu Danışan</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Yıl Deneyim</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">%98</div>
+        <div class="stat-label">Memnuniyet</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="hizmetler">
+<div class="section">
+  <div class="section-title">
+    <h2>Öne Çıkan <span>Hizmetlerimiz</span></h2>
+    <p>Size özel çözümler sunuyoruz</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <span class="card-icon">🎯</span>
+      <h3>Bireysel Koçluk</h3>
+      <p>Kişisel hedeflerinize odaklanarak birebir destek ve yol haritası oluşturuyoruz.</p>
+      <span class="card-tag">En Popüler</span>
+    </div>
+    <div class="card">
+      <span class="card-icon">🚀</span>
+      <h3>Kariyer Koçluğu</h3>
+      <p>Kariyer planlaması ve profesyonel gelişim için stratejik rehberlik sağlıyoruz.</p>
+      <span class="card-tag">Yüksek Talep</span>
+    </div>
+    <div class="card">
+      <span class="card-icon">💡</span>
+      <h3>Motivasyon & Gelişim</h3>
+      <p>İç motivasyonunuzu güçlendirerek sürdürülebilir başarı alışkanlıkları kazandırıyoruz.</p>
+      <span class="card-tag">Önerilen</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="hakkimizda" style="background:#0d0d0d;padding:80px 20px;">
+<div style="max-width:1100px;margin:auto;">
+  <div class="about-wrap">
+    <div class="about-visual">
+      <div class="about-shape">🏆</div>
+    </div>
+    <div class="about-text">
+      <h2>Neden <span>ŞahinK?</span></h2>
+      <p>Yılların deneyimi ve kanıtlanmış yöntemlerle danışanlarımızı hedeflerine taşıyan, güvenilir ve profesyonel koçluk hizmeti sunuyoruz. Her adımda yanınızdayız.</p>
+      <ul class="about-list">
+        <li><i class="fas fa-check-circle"></i> Kişiye özel koçluk programları</li>
+        <li><i class="fas fa-check-circle"></i> Uzman ve sertifikalı koçlar</li>
+        <li><i class="fas fa-check-circle"></i> Esnek seans saatleri</li>
+        <li><i class="fas fa-check-circle"></i> Sonuç odaklı yaklaşım</li>
+      </ul>
+      <br>
+      <a href="https://wa.me/9032476975580" class="btn-primary" target="_blank" style="margin-top:10px;">
+        <i class="fab fa-whatsapp"></i> Hemen İletişime Geç
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="iletisim" class="contact-bg">
+  <div class="contact-inner">
+    <div class="section-title">
+      <h2>Bize <span>Ulaşın</span></h2>
+      <p>Randevu almak için hemen iletişime geçin</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <i class="fas fa-phone" style="color:var(--red);"></i>
+        <h3>Telefon</h3>
+        <p>+90 324 769 75 58</p>
+        <a href="tel:+903247697558"><i class="fas fa-phone"></i> Hemen Ara</a>
+      </div>
+      <div class="contact-card wa-card">
+        <i class="fab fa-whatsapp" style="color:#25d366;"></i>
+        <h3>WhatsApp</h3>
+        <p>+90 324 769 75 58</p>
+        <a href="https://wa.me/9032476975580" target="_blank"><i class="fab fa-whatsapp"></i> Mesaj Gönder</a>
+      </div>
+    </div>
+    <div class="form-box">
+      <h3>📋 Randevu Talebi</h3>
+      <div class="form-row">
+        <input type="text" id="fname" placeholder="Adınız Soyadınız">
+        <input type="tel" id="fphone" placeholder="Telefon Numaranız">
+      </div>
+      <textarea id="fmsg" placeholder="Mesajınız veya randevu talebiniz..."></textarea>
+      <button onclick="sendWA()"><i class="fab fa-whatsapp"></i> WhatsApp ile Gönder</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="logo">🏆 ŞahinK Halı Kilim Trave</span>
+  <p>📞 <a href="tel:+903247697558">+90 324 769 75 58</a> &nbsp;|&nbsp; <a href="https://wa.me/9032476975580" target="_blank">WhatsApp</a></p>
+  <p style="margin-top:8px;">© 2024 ŞahinK. Tüm hakları saklıdır.</p>
+</footer>
+
+<a href="https://wa.me/9032476975580" class="wa-float" target="_blank" title="WhatsApp ile Ulaşın">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', function(){
+  navLinks.classList.toggle('active');
+});
+document.querySelectorAll('.nav-link').forEach(function(link){
+  link.addEventListener('click', function(){
+    navLinks.classList.remove('active');
+  });
+});
+function sendWA(){
+  var name = document.getElementById('fname').value || 'Belirtilmedi';
+  var phone = document.getElementById('fphone').value || 'Belirtilmedi';
+  var msg = document.getElementById('fmsg').value || 'Randevu talebi';
+  var text = encodeURIComponent('Merhaba, randevu almak istiyorum.\nAd: ' + name + '\nTelefon: ' + phone + '\nMesaj: ' + msg);
+  window.open('https://wa.me/9032476975580?text=' + text, '_blank');
+}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var target = document.querySelector(this.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+</script>
+</body>
+</html>
