@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pakyürek – Balık Mamülleri İşleme & Paketleme</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff}
+:root{--navy:#1a1a6e;--blue:#2233aa;--red:#cc0000;--white:#fff;--light:#f4f6ff}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;background:rgba(26,26,110,0.97);backdrop-filter:blur(8px);z-index:999;padding:0 5%}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{color:#fff;font-size:1.4rem;font-weight:900;letter-spacing:1px;text-decoration:none}
+.logo span{color:#cc0000}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:600;font-size:.95rem;transition:color .2s}
+.nav-links a:hover{color:#cc0000}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.hamburger span{display:block;width:26px;height:3px;background:#fff;border-radius:2px;transition:.3s}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#0d0d5e 0%,#1a1a8e 40%,#2a0a0a 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(204,0,0,0.18) 0%,transparent 60%)}
+.hero-badge{display:inline-block;background:rgba(204,0,0,0.2);border:1px solid rgba(204,0,0,0.5);color:#ff6666;padding:6px 18px;border-radius:50px;font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.2rem}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:1rem}
+.hero h1 span{color:#cc0000}
+.hero p{color:rgba(255,255,255,0.75);font-size:1.1rem;max-width:520px;margin:0 auto 2rem}
+.btn-primary{display:inline-block;background:linear-gradient(135deg,#cc0000,#990000);color:#fff;padding:14px 36px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(204,0,0,0.4)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(204,0,0,0.55)}
+.btn-outline{display:inline-block;border:2px solid rgba(255,255,255,0.5);color:#fff;padding:13px 32px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;margin-left:1rem;transition:.2s}
+.btn-outline:hover{background:rgba(255,255,255,0.1);border-color:#fff}
+.hero-icons{display:flex;justify-content:center;gap:2.5rem;margin-top:3rem}
+.hero-icons div{text-align:center;color:rgba(255,255,255,0.6)}
+.hero-icons i{font-size:2rem;color:#cc0000;display:block;margin-bottom:.4rem}
+.hero-icons span{font-size:.8rem;font-weight:600}
+
+/* SERVICES */
+.services{padding:80px 5%;background:var(--light)}
+.section-title{text-align:center;margin-bottom:3rem}
+.section-title h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;color:var(--navy)}
+.section-title h2 span{color:#cc0000}
+.section-title p{color:#666;margin-top:.5rem;font-size:.95rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto}
+.card{background:#fff;border-radius:16px;padding:2rem 1.5rem;text-align:center;box-shadow:0 4px 20px rgba(26,26,110,0.08);border-top:4px solid #cc0000;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(26,26,110,0.14)}
+.card-icon{width:64px;height:64px;background:linear-gradient(135deg,#1a1a8e,#2233aa);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.6rem;color:#fff}
+.card h3{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:.6rem}
+.card p{color:#666;font-size:.9rem;line-height:1.6}
+
+/* ABOUT */
+.about{padding:80px 5%;background:linear-gradient(135deg,#0d0d5e,#1a1a8e)}
+.about-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.about-text h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;color:#fff;margin-bottom:1rem}
+.about-text h2 span{color:#cc0000}
+.about-text p{color:rgba(255,255,255,0.8);line-height:1.8;font-size:.95rem}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:1.2rem;text-align:center}
+.stat strong{display:block;font-size:1.8rem;font-weight:900;color:#cc0000}
+.stat span{color:rgba(255,255,255,0.7);font-size:.8rem;font-weight:600}
+
+/* CONTACT */
+.contact{padding:80px 5%;background:#fff}
+.contact-inner{max-width:800px;margin:0 auto}
+.contact-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2.5rem}
+.contact-card{background:var(--light);border-radius:14px;padding:1.5rem;text-align:center;border:2px solid transparent;transition:.2s}
+.contact-card:hover{border-color:#cc0000}
+.contact-card i{font-size:1.8rem;color:var(--navy);margin-bottom:.8rem;display:block}
+.contact-card h4{font-weight:800;color:var(--navy);margin-bottom:.4rem;font-size:.95rem}
+.contact-card a{color:#cc0000;font-weight:700;text-decoration:none;font-size:1rem}
+.contact-card a:hover{text-decoration:underline}
+.wa-btn{display:block;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;text-align:center;padding:16px;border-radius:12px;font-weight:800;font-size:1.05rem;text-decoration:none;margin-top:2rem;transition:.2s;box-shadow:0 4px 16px rgba(37,211,102,0.3)}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.45)}
+.wa-btn i{margin-right:.5rem}
+
+/* FOOTER */
+footer{background:#0d0d5e;color:rgba(255,255,255,0.6);text-align:center;padding:1.5rem 5%;font-size:.85rem}
+footer strong{color:#cc0000}
+
+/* FLOATING WA */
+.float-wa{position:fixed;bottom:24px;right:24px;z-index:9999;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;transition:.2s}
+.float-wa:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.65)}
+
+/* MOBILE */
+@media(max-width:768px){
+.hamburger{display:flex;flex-direction:column}
+.nav-links{display:none;position:absolute;top:64px;left:0;width:100%;background:#1a1a6e;flex-direction:column;gap:0;padding:1rem 0}
+.nav-links.active{display:flex}
+.nav-links li a{display:block;padding:.8rem 5%;border-bottom:1px solid rgba(255,255,255,0.08)}
+.hero-icons{gap:1.5rem}
+.btn-outline{margin-left:0;margin-top:.8rem;display:block;text-align:center}
+.about-inner{grid-template-columns:1fr}
+.about-stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Pak<span>yürek</span></a>
+    <button class="hamburger" aria-label="Menüyü aç">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#hizmetler">Hizmetler</a></li>
+      <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge">🐟 Taze &amp; Güvenilir</div>
+    <h1>Denizden Sofraya<br><span>Kaliteli İşleme</span></h1>
+    <p>Balık mamüllerinde profesyonel işleme, hijyenik paketleme ve soğuk zincir dondurma hizmetleri.</p>
+    <a href="https://wa.me/905326945695" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> Hemen Teklif Al</a>
+    <a href="#hizmetler" class="btn-outline">Hizmetlerimiz</a>
+    <div class="hero-icons">
+      <div><i class="fa-solid fa-fish"></i><span>Taze Ürün</span></div>
+      <div><i class="fa-solid fa-box-open"></i><span>Hijyenik Paket</span></div>
+      <div><i class="fa-solid fa-snowflake"></i><span>Soğuk Zincir</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="hizmetler">
+  <div class="section-title">
+    <h2>Öne Çıkan <span>Hizmetlerimiz</span></h2>
+    <p>Sektörde güvenilir çözümler sunuyoruz.</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon"><i class="fa-solid fa-fish-fins"></i></div>
+      <h3>Balık İşleme</h3>
+      <p>Temizleme, fileto ve hazırlama süreçlerinde hijyen standartlarına tam uyum sağlıyoruz.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fa-solid fa-box-archive"></i></div>
+      <h3>Profesyonel Paketleme</h3>
+      <p>Vakumlu ve atmosfer kontrollü paketleme ile ürünlerinizin tazeliğini koruyoruz.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fa-solid fa-temperature-low"></i></div>
+      <h3>Dondurma & Soğuk Zincir</h3>
+      <p>Hızlı dondurma teknolojisi ile ürün kalitesini ve besin değerini en üst düzeyde tutuyoruz.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="hakkimizda">
+  <div class="about-inner">
+    <div class="about-text">
+      <h2>Neden <span>Pakyürek?</span></h2>
+      <p>Pakyürek olarak balık mamülleri işleme, paketleme ve dondurma alanında yılların deneyimiyle sektörün güvenilir çözüm ortağıyız. Hijyen, kalite ve hız bizim için vazgeçilmezdir.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat"><strong>100%</strong><span>Hijyen Standartı</span></div>
+      <div class="stat"><strong>7/24</strong><span>Soğuk Zincir</span></div>
+      <div class="stat"><strong>Hızlı</strong><span>Teslimat</span></div>
+      <div class="stat"><strong>Güvenli</strong><span>Paketleme</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="iletisim">
+  <div class="contact-inner">
+    <div class="section-title">
+      <h2>Bize <span>Ulaşın</span></h2>
+      <p>Teklif ve bilgi için hemen iletişime geçin.</p>
+    </div>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <i class="fa-solid fa-phone"></i>
+        <h4>Telefon</h4>
+        <a href="tel:+905326945695">+90 532 694 56 95</a>
+      </div>
+      <div class="contact-card">
+        <i class="fa-brands fa-whatsapp"></i>
+        <h4>WhatsApp</h4>
+        <a href="https://wa.me/905326945695">+90 532 694 56 95</a>
+      </div>
+    </div>
+    <a href="https://wa.me/905326945695" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp ile Mesaj Gönder</a>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Pakyürek</strong> – Balık Mamülleri İşleme, Paketleme &amp; Dondurma &nbsp;|&nbsp; <a href="tel:+905326945695" style="color:#cc0000;text-decoration:none">+90 532 694 56 95</a></p>
+  <p style="margin-top:.4rem">© 2025 Tüm hakları saklıdır.</p>
+</footer>
+
+<a href="https://wa.me/905326945695" class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp ile iletişim">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+</script>
+</body>
+</html>
