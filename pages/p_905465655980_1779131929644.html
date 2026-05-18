@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deniz Yüzme Okulları</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;color:#1a2a4a;background:#fff;}
+:root{--blue:#0a4fa8;--light:#1e90ff;--dark:#062d6e;--white:#fff;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;background:rgba(6,45,110,0.95);backdrop-filter:blur(8px);z-index:999;padding:0 5%;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{color:#fff;font-size:1.3rem;font-weight:800;letter-spacing:1px;}
+.logo span{color:#7ec8f7;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:#cde8ff;text-decoration:none;font-size:.95rem;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:#fff;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+.hamburger span{display:block;width:26px;height:3px;background:#fff;border-radius:2px;transition:.3s;}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#062d6e 0%,#0a4fa8 50%,#1e90ff 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;bottom:-60px;left:-60px;width:320px;height:320px;background:rgba(255,255,255,.05);border-radius:50%;}
+.hero::after{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:rgba(255,255,255,.04);border-radius:50%;}
+.hero-content{position:relative;z-index:1;max-width:700px;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);color:#cde8ff;padding:.35rem 1.1rem;border-radius:50px;font-size:.85rem;margin-bottom:1.2rem;border:1px solid rgba(255,255,255,.2);}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;color:#fff;line-height:1.2;margin-bottom:1rem;}
+.hero h1 span{color:#7ec8f7;}
+.hero p{color:#b8d9f5;font-size:1.1rem;margin-bottom:2rem;font-weight:300;}
+.btn{display:inline-block;padding:.85rem 2.2rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:.25s;cursor:pointer;border:none;}
+.btn-primary{background:#fff;color:#0a4fa8;}
+.btn-primary:hover{background:#e0f0ff;transform:translateY(-2px);}
+.btn-wa{background:#25d366;color:#fff;margin-left:.8rem;}
+.btn-wa:hover{background:#1ebe5a;transform:translateY(-2px);}
+.hero-icons{display:flex;justify-content:center;gap:2.5rem;margin-top:3rem;}
+.hero-icons div{color:rgba(255,255,255,.7);font-size:.85rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;}
+.hero-icons i{font-size:1.6rem;color:#7ec8f7;}
+
+/* SERVICES */
+.services{padding:80px 5%;background:#f0f7ff;}
+.section-title{text-align:center;margin-bottom:3rem;}
+.section-title h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#062d6e;}
+.section-title p{color:#5580a0;margin-top:.5rem;font-size:.95rem;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto;}
+.card{background:#fff;border-radius:16px;padding:2rem 1.5rem;text-align:center;box-shadow:0 4px 20px rgba(10,79,168,.1);transition:.25s;border-top:4px solid #1e90ff;}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(10,79,168,.18);}
+.card-icon{width:64px;height:64px;background:linear-gradient(135deg,#0a4fa8,#1e90ff);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.6rem;color:#fff;}
+.card h3{font-size:1.1rem;font-weight:700;color:#062d6e;margin-bottom:.5rem;}
+.card p{color:#5580a0;font-size:.9rem;line-height:1.5;}
+
+/* ABOUT */
+.about{padding:80px 5%;background:#fff;}
+.about-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+.about-visual{background:linear-gradient(135deg,#062d6e,#1e90ff);border-radius:20px;height:280px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
+.about-visual i{font-size:4rem;color:rgba(255,255,255,.9);}
+.about-visual span{color:#cde8ff;font-size:1rem;font-weight:600;}
+.about-text h2{font-size:1.8rem;font-weight:800;color:#062d6e;margin-bottom:1rem;}
+.about-text p{color:#4a6a8a;line-height:1.7;font-size:.95rem;}
+.stats{display:flex;gap:1.5rem;margin-top:1.5rem;}
+.stat{text-align:center;}
+.stat strong{display:block;font-size:1.6rem;font-weight:800;color:#0a4fa8;}
+.stat span{font-size:.8rem;color:#5580a0;}
+
+/* CONTACT */
+.contact{padding:80px 5%;background:linear-gradient(135deg,#062d6e,#0a4fa8);}
+.contact .section-title h2{color:#fff;}
+.contact .section-title p{color:#b8d9f5;}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;max-width:800px;margin:0 auto;}
+.contact-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:1.8rem;text-align:center;color:#fff;transition:.25s;}
+.contact-card:hover{background:rgba(255,255,255,.18);}
+.contact-card i{font-size:2rem;margin-bottom:.8rem;color:#7ec8f7;}
+.contact-card h4{font-size:1rem;font-weight:700;margin-bottom:.4rem;}
+.contact-card a{color:#cde8ff;text-decoration:none;font-size:.95rem;}
+.contact-card a:hover{color:#fff;}
+
+/* FOOTER */
+footer{background:#041d4a;color:#7a9cc0;text-align:center;padding:1.5rem;font-size:.85rem;}
+footer a{color:#7ec8f7;text-decoration:none;}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:9999;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 4px 16px rgba(37,211,102,.5);text-decoration:none;transition:.25s;}
+.wa-float:hover{transform:scale(1.1);background:#1ebe5a;}
+
+/* MOBILE */
+@media(max-width:768px){
+.hamburger{display:flex;flex-direction:column;}
+.nav-links{display:none;flex-direction:column;position:absolute;top:64px;left:0;width:100%;background:#062d6e;padding:1rem 5%;gap:1rem;}
+.nav-links.active{display:flex;}
+.about-inner{grid-template-columns:1fr;}
+.about-visual{height:180px;}
+.hero-icons{gap:1.5rem;}
+.btn-wa{margin-left:0;margin-top:.6rem;}
+.stats{gap:1rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">🌊 Deniz <span>Yüzme</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hizmetler">Hizmetler</a></li>
+      <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menüyü aç" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🏊 Profesyonel Yüzme Eğitimi</div>
+    <h1>Suyla <span>Güvenle</span> Buluş</h1>
+    <p>Her yaşa özel, uzman eğitmenlerle güvenli ve eğlenceli yüzme dersleri.</p>
+    <div>
+      <a href="#iletisim" class="btn btn-primary">Bilgi Al</a>
+      <a href="https://wa.me/905465655980" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="hero-icons">
+      <div><i class="fas fa-shield-alt"></i><span>Güvenli Ortam</span></div>
+      <div><i class="fas fa-user-graduate"></i><span>Uzman Eğitmen</span></div>
+      <div><i class="fas fa-medal"></i><span>Sertifikalı</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="hizmetler">
+  <div class="section-title">
+    <h2>Hizmetlerimiz</h2>
+    <p>Her seviyeye uygun yüzme programları</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-child"></i></div>
+      <h3>Çocuk Yüzme Kursu</h3>
+      <p>4 yaş ve üzeri çocuklar için oyun temelli, güvenli yüzme eğitimi.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-person-swimming"></i></div>
+      <h3>Yetişkin Yüzme Kursu</h3>
+      <p>Başlangıçtan ileri seviyeye, bireysel tempoda yetişkin yüzme dersleri.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-trophy"></i></div>
+      <h3>Özel & Yarışma Antrenmanı</h3>
+      <p>Bireysel ilerleme ve yarışmaya hazırlık için özel antrenman programları.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="hakkimizda">
+  <div class="about-inner">
+    <div class="about-visual">
+      <i class="fas fa-water"></i>
+      <span>Deniz Yüzme Okulları</span>
+    </div>
+    <div class="about-text">
+      <h2>Hakkımızda</h2>
+      <p>Deniz Yüzme Okulları olarak, alanında uzman eğitmenlerimiz ve güvenli tesislerimizle her yaştan bireye kaliteli yüzme eğitimi sunuyoruz. Amacımız; suya olan güveni artırarak sağlıklı ve mutlu bireyler yetiştirmektir.</p>
+      <div class="stats">
+        <div class="stat"><strong>500+</strong><span>Mezun Öğrenci</span></div>
+        <div class="stat"><strong>10+</strong><span>Yıl Deneyim</span></div>
+        <div class="stat"><strong>%100</strong><span>Güvenli Ortam</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="iletisim">
+  <div class="section-title">
+    <h2>İletişim</h2>
+    <p>Hemen ulaşın, size yardımcı olalım</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <i class="fas fa-phone"></i>
+      <h4>Telefon</h4>
+      <a href="tel:+905465655980">+90 546 565 59 80</a>
+    </div>
+    <div class="contact-card">
+      <i class="fab fa-whatsapp"></i>
+      <h4>WhatsApp</h4>
+      <a href="https://wa.me/905465655980" target="_blank">Mesaj Gönder</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 Deniz Yüzme Okulları &nbsp;|&nbsp; <a href="tel:+905465655980">+90 546 565 59 80</a> &nbsp;|&nbsp; <a href="https://wa.me/905465655980" target="_blank">WhatsApp</a></p>
+</footer>
+
+<a href="https://wa.me/905465655980" class="wa-float" target="_blank" aria-label="WhatsApp ile iletişim">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+</script>
+</body>
+</html>
