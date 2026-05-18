@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nurhan Terzi – Profesyonel Terzilik Hizmetleri</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff}
+:root{--blue:#1565c0;--blue2:#1976d2;--blue3:#42a5f5;--light:#e3f2fd;--dark:#0d47a1}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;background:rgba(21,101,192,0.97);backdrop-filter:blur(8px);z-index:999;padding:0 5%}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{color:#fff;font-size:1.4rem;font-weight:800;letter-spacing:1px;text-decoration:none}
+.logo span{color:#90caf9}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:#e3f2fd;text-decoration:none;font-size:.95rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.hamburger span{display:block;width:26px;height:3px;background:#fff;border-radius:2px;transition:.3s}
+.nav-links.active{display:flex;flex-direction:column;position:absolute;top:64px;left:0;width:100%;background:var(--blue);padding:1rem 5%;gap:1rem}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#0d47a1 0%,#1565c0 40%,#1976d2 70%,#42a5f5 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:rgba(255,255,255,.06);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-60px;width:300px;height:300px;background:rgba(255,255,255,.04);border-radius:50%}
+.hero-content{position:relative;z-index:1;max-width:700px}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);color:#e3f2fd;padding:.4rem 1.2rem;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:1.5rem;border:1px solid rgba(255,255,255,.2)}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:1rem}
+.hero h1 span{color:#90caf9}
+.hero p{font-size:1.1rem;color:#bbdefb;margin-bottom:2.5rem;font-weight:300}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:50px;font-size:1rem;font-weight:700;text-decoration:none;transition:all .25s;cursor:pointer;border:none}
+.btn-white{background:#fff;color:var(--blue)}
+.btn-white:hover{background:#e3f2fd;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);margin-left:1rem}
+.btn-outline:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.hero-icons{display:flex;justify-content:center;gap:2.5rem;margin-top:3rem}
+.hero-icon{text-align:center;color:rgba(255,255,255,.7)}
+.hero-icon i{font-size:1.8rem;display:block;margin-bottom:.4rem;color:#90caf9}
+.hero-icon span{font-size:.8rem;font-weight:500}
+
+/* SERVICES */
+.services{padding:90px 5%;background:#f8fbff}
+.section-label{text-align:center;color:var(--blue2);font-size:.85rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem}
+.section-title{text-align:center;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:#0d47a1;margin-bottom:.8rem}
+.section-sub{text-align:center;color:#546e7a;font-size:1rem;margin-bottom:3.5rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.8rem;max-width:1000px;margin:0 auto}
+.card{background:#fff;border-radius:20px;padding:2.2rem 1.8rem;box-shadow:0 4px 20px rgba(21,101,192,.08);transition:all .3s;border:1px solid #e3f2fd;text-align:center}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(21,101,192,.15);border-color:#90caf9}
+.card-icon{width:70px;height:70px;background:linear-gradient(135deg,var(--blue),var(--blue3));border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem;font-size:1.8rem;color:#fff}
+.card h3{font-size:1.2rem;font-weight:700;color:#0d47a1;margin-bottom:.6rem}
+.card p{font-size:.92rem;color:#607d8b;line-height:1.6}
+
+/* ABOUT */
+.about{padding:90px 5%;background:linear-gradient(135deg,#0d47a1,#1976d2)}
+.about-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-visual{display:flex;flex-direction:column;gap:1rem}
+.about-stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:1.4rem;text-align:center;color:#fff}
+.about-stat strong{display:block;font-size:2rem;font-weight:800;color:#90caf9}
+.about-stat span{font-size:.85rem;opacity:.85}
+.about-text .section-label{text-align:left;color:#90caf9}
+.about-text .section-title{text-align:left;color:#fff}
+.about-text p{color:#bbdefb;font-size:1rem;line-height:1.8;margin-bottom:1.5rem}
+.about-text .btn-white{margin-top:.5rem}
+
+/* CONTACT */
+.contact{padding:90px 5%;background:#f8fbff}
+.contact-inner{max-width:800px;margin:0 auto}
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+.contact-card{background:#fff;border-radius:20px;padding:2rem;box-shadow:0 4px 20px rgba(21,101,192,.08);border:1px solid #e3f2fd;text-align:center;transition:all .3s}
+.contact-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(21,101,192,.14)}
+.contact-card i{font-size:2rem;color:var(--blue2);margin-bottom:.8rem;display:block}
+.contact-card h4{font-size:1rem;font-weight:700;color:#0d47a1;margin-bottom:.4rem}
+.contact-card a{color:#1976d2;text-decoration:none;font-size:1rem;font-weight:600}
+.contact-card a:hover{color:#0d47a1}
+.contact-form{background:#fff;border-radius:20px;padding:2.5rem;box-shadow:0 4px 20px rgba(21,101,192,.08);border:1px solid #e3f2fd;margin-top:2rem}
+.contact-form h3{font-size:1.3rem;font-weight:700;color:#0d47a1;margin-bottom:1.5rem;text-align:center}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.form-group label{font-size:.85rem;font-weight:600;color:#546e7a}
+.form-group input,.form-group textarea{padding:.75rem 1rem;border:1.5px solid #e3f2fd;border-radius:10px;font-size:.95rem;font-family:inherit;transition:border .2s;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--blue2)}
+.form-group textarea{resize:vertical;min-height:100px}
+.btn-full{width:100%;justify-content:center;background:linear-gradient(135deg,var(--blue),var(--blue3));color:#fff;border-radius:12px;padding:1rem}
+.btn-full:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(21,101,192,.3)}
+
+/* FOOTER */
+footer{background:#0d47a1;color:#bbdefb;text-align:center;padding:2rem 5%}
+footer strong{color:#fff}
+footer a{color:#90caf9;text-decoration:none}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:9999;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 4px 20px rgba(37,211,102,.5);transition:all .3s;text-decoration:none}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.7)}
+
+@media(max-width:768px){
+.hamburger{display:flex}
+.nav-links{display:none}
+.about-inner{grid-template-columns:1fr}
+.about-visual{flex-direction:row}
+.contact-cards{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.btn-outline{margin-left:0;margin-top:.8rem}
+.hero p{font-size:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Nurhan<span>Terzi</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hizmetler">Hizmetler</a></li>
+      <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menüyü aç" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">✂️ Profesyonel Terzilik</div>
+    <h1>Mükemmel Uyum,<br><span>Özel Dikişler</span></h1>
+    <p>Her bedeninize özel, kaliteli ve şık terzilik hizmetleri için doğru adrestesiniz.</p>
+    <div>
+      <a href="https://wa.me/905367774149" class="btn btn-white" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp'tan Ulaşın</a>
+      <a href="#hizmetler" class="btn btn-outline">Hizmetleri Gör</a>
+    </div>
+    <div class="hero-icons">
+      <div class="hero-icon"><i class="fas fa-cut"></i><span>Özel Dikiş</span></div>
+      <div class="hero-icon"><i class="fas fa-star"></i><span>Kaliteli İşçilik</span></div>
+      <div class="hero-icon"><i class="fas fa-clock"></i><span>Hızlı Teslimat</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="hizmetler">
+  <div class="section-label">Hizmetlerimiz</div>
+  <h2 class="section-title">Neler Yapıyoruz?</h2>
+  <p class="section-sub">Her ihtiyacınıza özel, titizlikle hazırlanan terzilik çözümleri.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-tshirt"></i></div>
+      <h3>Özel Elbise Dikimi</h3>
+      <p>Bedeninize tam oturan, hayalinizdeki tasarımı gerçeğe dönüştürüyoruz.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-scissors"></i></div>
+      <h3>Tadilat & Onarım</h3>
+      <p>Dar gelen, bol olan veya yıpranan kıyafetlerinizi yeniden hayata döndürüyoruz.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-gem"></i></div>
+      <h3>Gelinlik & Abiye</h3>
+      <p>Özel günleriniz için unutulmaz tasarımlar; gelinlik, abiye ve kokteyl elbiseleri.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="hakkimizda">
+  <div class="about-inner">
+    <div class="about-visual">
+      <div class="about-stat"><strong>10+</strong><span>Yıllık Deneyim</span></div>
+      <div class="about-stat"><strong>500+</strong><span>Mutlu Müşteri</span></div>
+      <div class="about-stat"><strong>%100</strong><span>Memnuniyet</span></div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">Hakkımızda</div>
+      <h2 class="section-title">Nurhan Terzi</h2>
+      <p>Yılların deneyimiyle her kıyafete özel dokunuşlar katıyor, müşterilerimizin tarzını en iyi şekilde yansıtıyoruz. Kalite, güven ve titiz işçilik bizim için vazgeçilmezdir.</p>
+      <a href="https://wa.me/905367774149" class="btn btn-white" target="_blank"><i class="fab fa-whatsapp"></i> Randevu Al</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="iletisim">
+  <div class="contact-inner">
+    <div class="section-label">İletişim</div>
+    <h2 class="section-title">Bize Ulaşın</h2>
+    <p class="section-sub">Sorularınız için hemen iletişime geçin.</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <i class="fas fa-phone"></i>
+        <h4>Telefon</h4>
+        <a href="tel:+905367774149">+90 536 777 41 49</a>
+      </div>
+      <div class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <h4>WhatsApp</h4>
+        <a href="https://wa.me/905367774149" target="_blank">+90 536 777 41 49</a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>✉️ Mesaj Gönderin</h3>
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Adınız</label>
+            <input type="text" id="fname" placeholder="Adınız Soyadınız" required>
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" id="fphone" placeholder="05XX XXX XX XX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Mesajınız</label>
+          <textarea id="fmsg" placeholder="Hizmet talebinizi veya sorunuzu yazın..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-full"><i class="fab fa-whatsapp"></i> WhatsApp ile Gönder</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Nurhan Terzi</strong> &nbsp;|&nbsp; <a href="tel:+905367774149">+90 536 777 41 49</a> &nbsp;|&nbsp; <a href="https://wa.me/905367774149" target="_blank">WhatsApp</a></p>
+  <p style="margin-top:.5rem;font-size:.85rem;opacity:.7">© 2024 Nurhan Terzi. Tüm hakları saklıdır.</p>
+</footer>
+
+<a href="https://wa.me/905367774149" class="wa-float" target="_blank" aria-label="WhatsApp ile iletişime geç">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', function(){
+  navLinks.classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(function(link){
+  link.addEventListener('click', function(){
+    navLinks.classList.remove('active');
+  });
+});
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const msg = document.getElementById('fmsg').value.trim();
+  let text = 'Merhaba, ben ' + name + '.';
+  if(phone) text += ' Telefonum: ' + phone + '.';
+  if(msg) text += ' Mesajım: ' + msg;
+  window.open('https://wa.me/905367774149?text=' + encodeURIComponent(text), '_blank');
+});
+</script>
+</body>
+</html>
