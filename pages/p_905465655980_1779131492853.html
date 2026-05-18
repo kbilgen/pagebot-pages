@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deniz Yüzme Okulları</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;color:#1a2a4a;background:#fff;}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 20px rgba(0,100,200,0.1);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.3rem;font-weight:800;color:#0057b8;letter-spacing:-0.5px;}
+.logo span{color:#00b4d8;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{text-decoration:none;color:#1a2a4a;font-weight:500;font-size:0.95rem;transition:color 0.2s;}
+.nav-links a:hover{color:#0057b8;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:#0057b8;}
+.hero{min-height:100vh;background:linear-gradient(135deg,#0057b8 0%,#0096c7 50%,#00b4d8 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:120px;background:#fff;clip-path:ellipse(55% 100% at 50% 100%);}
+.hero-bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,0.07);}
+.b1{width:300px;height:300px;top:-80px;left:-80px;}
+.b2{width:200px;height:200px;bottom:100px;right:-60px;}
+.b3{width:150px;height:150px;top:40%;left:5%;}
+.hero-content{position:relative;z-index:2;}
+.hero-icon{font-size:4rem;margin-bottom:16px;display:block;}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px;}
+.hero h1 span{color:#caf0f8;}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,0.88);max-width:520px;margin:0 auto 36px;}
+.btn{display:inline-block;padding:14px 36px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.25s;cursor:pointer;border:none;}
+.btn-white{background:#fff;color:#0057b8;}
+.btn-white:hover{background:#caf0f8;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
+.btn-primary{background:linear-gradient(135deg,#0057b8,#00b4d8);color:#fff;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,87,184,0.4);}
+.btn-green{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.4);}
+section{padding:80px 24px;}
+.container{max-width:1100px;margin:0 auto;}
+.section-label{font-size:0.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00b4d8;margin-bottom:8px;}
+.section-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#1a2a4a;margin-bottom:12px;}
+.section-sub{color:#5a7a9a;font-size:1rem;margin-bottom:48px;}
+.services{background:#f0f8ff;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.card{background:#fff;border-radius:20px;padding:36px 28px;box-shadow:0 4px 24px rgba(0,87,184,0.08);transition:all 0.3s;border-top:4px solid transparent;}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,87,184,0.15);border-top-color:#0057b8;}
+.card-icon{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#0057b8,#00b4d8);display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:#fff;margin-bottom:20px;}
+.card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:#1a2a4a;}
+.card p{color:#5a7a9a;font-size:0.92rem;line-height:1.6;}
+.about{background:#fff;}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-visual{background:linear-gradient(135deg,#0057b8,#00b4d8);border-radius:24px;height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff;}
+.about-visual .big-icon{font-size:5rem;}
+.about-visual p{font-size:1rem;opacity:0.9;font-weight:500;}
+.stats{display:flex;gap:24px;margin-top:32px;}
+.stat{text-align:center;}
+.stat-num{font-size:2rem;font-weight:800;color:#0057b8;}
+.stat-label{font-size:0.8rem;color:#5a7a9a;font-weight:500;}
+.contact{background:linear-gradient(135deg,#0057b8 0%,#0096c7 100%);}
+.contact .section-label{color:#caf0f8;}
+.contact .section-title{color:#fff;}
+.contact .section-sub{color:rgba(255,255,255,0.75);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.contact-card{background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:32px;text-align:center;transition:all 0.3s;}
+.contact-card:hover{background:rgba(255,255,255,0.2);transform:translateY(-4px);}
+.contact-card .c-icon{font-size:2.5rem;margin-bottom:16px;display:block;}
+.contact-card h3{color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+.contact-card p{color:rgba(255,255,255,0.8);font-size:0.95rem;margin-bottom:20px;}
+.contact-card a.btn{display:inline-block;}
+footer{background:#0a1628;color:rgba(255,255,255,0.6);text-align:center;padding:28px 24px;font-size:0.88rem;}
+footer strong{color:#00b4d8;}
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);transition:all 0.3s;}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,0.6);}
+@media(max-width:768px){
+.hamburger{display:block;}
+.nav-links{display:none;flex-direction:column;position:absolute;top:64px;left:0;width:100%;background:#fff;padding:16px 24px 24px;box-shadow:0 8px 24px rgba(0,0,0,0.1);gap:16px;}
+.nav-links.active{display:flex;}
+.about-inner{grid-template-columns:1fr;}
+.contact-grid{grid-template-columns:1fr;}
+.stats{gap:16px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Deniz <span>Yüzme</span> Okulları</div>
+    <button class="hamburger" aria-label="Menüyü aç"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Ana Sayfa</a></li>
+      <li><a href="#hizmetler">Hizmetler</a></li>
+      <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bubble b1"></div>
+  <div class="hero-bubble b2"></div>
+  <div class="hero-bubble b3"></div>
+  <div class="hero-content">
+    <span class="hero-icon">🌊</span>
+    <h1>Suyla <span>Buluşmanın</span><br>En Güvenli Yolu</h1>
+    <p>Profesyonel eğitmenler eşliğinde her yaşa uygun yüzme kursları ile hayalinizdeki yüzücü olun.</p>
+    <a href="https://wa.me/905465655980" class="btn btn-white"><i class="fab fa-whatsapp"></i> Hemen Bilgi Al</a>
+  </div>
+</section>
+
+<section class="services" id="hizmetler">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Hizmetlerimiz</div>
+    <h2 class="section-title">Size Özel Yüzme Programları</h2>
+    <p class="section-sub">Her seviyeye uygun kurslarımızla suya güvenle adım atın.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-child"></i></div>
+        <h3>Çocuk Yüzme Kursu</h3>
+        <p>4 yaş ve üzeri çocuklar için eğlenceli, güvenli ve gelişim odaklı yüzme eğitimi.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-person-swimming"></i></div>
+        <h3>Yetişkin Yüzme Kursu</h3>
+        <p>Sıfırdan başlayanlar ve teknik geliştirmek isteyenler için özel yetişkin programları.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-trophy"></i></div>
+        <h3>Yarışmacı Yüzme Eğitimi</h3>
+        <p>Müsabakalara hazırlık için yoğun antrenman ve teknik gelişim programı.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="hakkimizda">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="big-icon">🏊</div>
+        <p>Güvenli · Profesyonel · Eğlenceli</p>
+      </div>
+      <div>
+        <div class="section-label">Hakkımızda</div>
+        <h2 class="section-title">Neden Deniz Yüzme Okulları?</h2>
+        <p style="color:#5a7a9a;line-height:1.8;margin-bottom:28px;">Deniz Yüzme Okulları olarak, alanında uzman eğitmenlerimiz ve modern tesislerimizle her yaştan bireye güvenli ve kaliteli yüzme eğitimi sunuyoruz. Öğrencilerimizin suyla güvenli bir ilişki kurması bizim önceliğimizdir.</p>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Mezun Öğrenci</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Yıl Deneyim</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">%98</div>
+            <div class="stat-label">Memnuniyet</div>
+          </div>
+        </div>
+        <br>
+        <a href="https://wa.me/905465655980" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Kayıt Yaptır</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="iletisim">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">İletişim</div>
+    <h2 class="section-title">Bizimle İletişime Geçin</h2>
+    <p class="section-sub">Sorularınız için hemen ulaşın, size yardımcı olalım.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="c-icon">📞</span>
+        <h3>Telefon</h3>
+        <p>+90 546 565 59 80</p>
+        <a href="tel:+905465655980" class="btn btn-white">Hemen Ara</a>
+      </div>
+      <div class="contact-card">
+        <span class="c-icon">💬</span>
+        <h3>WhatsApp</h3>
+        <p>Anlık mesaj için WhatsApp'tan yazın.</p>
+        <a href="https://wa.me/905465655980" class="btn btn-green"><i class="fab fa-whatsapp"></i> Mesaj Gönder</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Deniz Yüzme Okulları</strong> &copy; 2024 · Tüm hakları saklıdır · <a href="tel:+905465655980" style="color:#00b4d8;text-decoration:none;">+90 546 565 59 80</a></p>
+</footer>
+
+<a href="https://wa.me/905465655980" class="wa-float" aria-label="WhatsApp ile iletişim">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', function() {
+  navLinks.classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    navLinks.classList.remove('active');
+  });
+});
+</script>
+</body>
+</html>
