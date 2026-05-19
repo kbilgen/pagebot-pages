@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selam Güzellik Salonu</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;color:#1a1a1a;background:#fff;}
+:root{--g1:#2d7a4f;--g2:#4caf7d;--g3:#e8f5ee;--white:#fff;}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);z-index:999;box-shadow:0 2px 12px rgba(45,122,79,0.1);}
+.nav-inner{max-width:1100px;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--g1);letter-spacing:1px;}
+.logo span{color:var(--g2);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{text-decoration:none;color:#333;font-weight:500;font-size:.95rem;transition:color .2s;}
+.nav-links a:hover{color:var(--g1);}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--g1);}
+.hero{min-height:100vh;background:linear-gradient(135deg,#1a5c38 0%,#2d7a4f 40%,#4caf7d 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;}
+.hero-inner{max-width:700px;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.15);color:#fff;padding:6px 18px;border-radius:50px;font-size:.85rem;margin-bottom:20px;border:1px solid rgba(255,255,255,0.3);}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:16px;}
+.hero p{color:rgba(255,255,255,0.88);font-size:1.1rem;margin-bottom:36px;}
+.btn{display:inline-block;padding:14px 32px;border-radius:50px;font-weight:600;font-size:1rem;text-decoration:none;transition:all .25s;cursor:pointer;border:none;}
+.btn-white{background:#fff;color:var(--g1);}
+.btn-white:hover{background:#e8f5ee;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
+.btn-green{background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,122,79,0.4);}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.7);margin-left:12px;}
+.btn-outline:hover{background:rgba(255,255,255,0.15);}
+.hero-shapes{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;pointer-events:none;}
+.hero{position:relative;}
+.shape{position:absolute;border-radius:50%;background:rgba(255,255,255,0.05);}
+.s1{width:300px;height:300px;top:-80px;right:-60px;}
+.s2{width:200px;height:200px;bottom:60px;left:-40px;}
+section{padding:80px 24px;}
+.container{max-width:1100px;margin:auto;}
+.section-label{text-align:center;color:var(--g1);font-weight:600;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.section-title{text-align:center;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#1a1a1a;margin-bottom:48px;}
+.section-title span{color:var(--g1);}
+.services{background:var(--g3);}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.card{background:#fff;border-radius:20px;padding:36px 28px;text-align:center;box-shadow:0 4px 20px rgba(45,122,79,0.08);transition:all .25s;border:1px solid rgba(45,122,79,0.08);}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(45,122,79,0.15);}
+.card-icon{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.8rem;color:#fff;}
+.card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#1a1a1a;}
+.card p{color:#666;font-size:.9rem;line-height:1.6;}
+.about{background:#fff;}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-visual{background:linear-gradient(135deg,var(--g1),var(--g2));border-radius:24px;height:320px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;}
+.about-visual .big-icon{font-size:5rem;color:rgba(255,255,255,0.9);}
+.about-visual p{color:rgba(255,255,255,0.85);font-size:1rem;font-weight:500;}
+.about-text h2{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;margin-bottom:16px;color:#1a1a1a;}
+.about-text h2 span{color:var(--g1);}
+.about-text p{color:#555;line-height:1.8;margin-bottom:24px;font-size:.97rem;}
+.stats{display:flex;gap:24px;margin-top:8px;}
+.stat{text-align:center;}
+.stat strong{display:block;font-size:1.6rem;font-weight:700;color:var(--g1);}
+.stat span{font-size:.8rem;color:#888;}
+.contact{background:var(--g3);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.contact-info h3{font-size:1.2rem;font-weight:700;margin-bottom:20px;color:#1a1a1a;}
+.contact-card{background:#fff;border-radius:16px;padding:20px 24px;display:flex;align-items:center;gap:16px;margin-bottom:16px;box-shadow:0 2px 12px rgba(45,122,79,0.07);transition:all .2s;}
+.contact-card:hover{transform:translateX(4px);box-shadow:0 4px 20px rgba(45,122,79,0.12);}
+.contact-card .icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.icon-phone{background:linear-gradient(135deg,#2d7a4f,#4caf7d);color:#fff;}
+.icon-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;}
+.contact-card .info strong{display:block;font-size:.85rem;color:#888;font-weight:500;}
+.contact-card .info a{color:#1a1a1a;font-weight:600;text-decoration:none;font-size:1rem;}
+.contact-card .info a:hover{color:var(--g1);}
+.contact-form{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 20px rgba(45,122,79,0.08);}
+.contact-form h3{font-size:1.2rem;font-weight:700;margin-bottom:20px;color:#1a1a1a;}
+.form-group{margin-bottom:16px;}
+.form-group input,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:'Poppins',sans-serif;font-size:.9rem;transition:border .2s;outline:none;}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--g1);}
+.form-group textarea{height:100px;resize:none;}
+footer{background:linear-gradient(135deg,#1a3d2b,#2d7a4f);color:#fff;text-align:center;padding:40px 24px;}
+footer .logo-f{font-size:1.4rem;font-weight:700;margin-bottom:8px;}
+footer p{color:rgba(255,255,255,0.7);font-size:.88rem;margin-bottom:4px;}
+footer a{color:rgba(255,255,255,0.85);text-decoration:none;}
+footer a:hover{color:#fff;}
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:1000;width:58px;height:58px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);transition:all .25s;}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.6);}
+@media(max-width:768px){
+.hamburger{display:block;}
+.nav-links{display:none;flex-direction:column;position:absolute;top:64px;left:0;width:100%;background:#fff;padding:16px 24px 24px;box-shadow:0 8px 20px rgba(0,0,0,0.1);gap:16px;}
+.nav-links.active{display:flex;}
+.about-inner{grid-template-columns:1fr;}
+.contact-grid{grid-template-columns:1fr;}
+.about-visual{height:200px;}
+.stats{gap:16px;}
+.btn-outline{margin-left:0;margin-top:12px;}
+.hero p{font-size:.95rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Selam<span>✦</span></div>
+    <button class="hamburger" aria-label="Menüyü aç"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hizmetler">Hizmetler</a></li>
+      <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-shapes">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge">✨ Profesyonel Güzellik Salonu</div>
+    <h1>Güzelliğinizi Bize<br>Emanet Edin</h1>
+    <p>Modern teknikler ve uzman elleriyle kendinizi en iyi hissedin.</p>
+    <a href="#hizmetler" class="btn btn-white">Hizmetlerimiz</a>
+    <a href="https://wa.me/905465655980" class="btn btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> Randevu Al</a>
+  </div>
+</section>
+
+<section class="services" id="hizmetler">
+  <div class="container">
+    <div class="section-label">Ne Sunuyoruz</div>
+    <h2 class="section-title">Öne Çıkan <span>Hizmetlerimiz</span></h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-cut"></i></div>
+        <h3>Saç Kesim & Şekillendirme</h3>
+        <p>Yüz hatlarınıza özel modern kesimler ve profesyonel şekillendirme uygulamaları.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-spa"></i></div>
+        <h3>Cilt Bakımı & Maske</h3>
+        <p>Cildinizi yenileyen derinlemesine bakım ve nemlendirme uygulamaları.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-paint-brush"></i></div>
+        <h3>Makyaj & Özel Gün</h3>
+        <p>Düğün, nişan ve özel günleriniz için kalıcı ve etkileyici makyaj.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="hakkimizda">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="big-icon">💆‍♀️</div>
+        <p>Selam Güzellik Salonu</p>
+      </div>
+      <div class="about-text">
+        <div class="section-label" style="text-align:left;">Biz Kimiz</div>
+        <h2>Güzelliğe <span>Değer</span> Katıyoruz</h2>
+        <p>Selam Güzellik Salonu olarak, her müşterimize özel ve kişiselleştirilmiş bakım hizmetleri sunarak güzelliğinizi en üst seviyeye taşıyoruz. Uzman ekibimiz ve modern ekipmanlarımızla yanınızdayız.</p>
+        <div class="stats">
+          <div class="stat"><strong>500+</strong><span>Mutlu Müşteri</span></div>
+          <div class="stat"><strong>5+</strong><span>Yıl Deneyim</span></div>
+          <div class="stat"><strong>%100</strong><span>Memnuniyet</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="iletisim">
+  <div class="container">
+    <div class="section-label">Ulaşın</div>
+    <h2 class="section-title">Bizimle <span>İletişime Geçin</span></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>İletişim Bilgileri</h3>
+        <div class="contact-card">
+          <div class="icon icon-phone"><i class="fas fa-phone"></i></div>
+          <div class="info">
+            <strong>Telefon</strong>
+            <a href="tel:+905465655980">+90 546 565 59 80</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="icon icon-wa"><i class="fab fa-whatsapp"></i></div>
+          <div class="info">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/905465655980" target="_blank">+90 546 565 59 80</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Randevu Talebi</h3>
+        <form id="contactForm">
+          <div class="form-group"><input type="text" placeholder="Adınız Soyadınız" required></div>
+          <div class="form-group"><input type="tel" placeholder="Telefon Numaranız" required></div>
+          <div class="form-group"><textarea placeholder="Mesajınız veya istediğiniz hizmet..."></textarea></div>
+          <button type="submit" class="btn btn-green" style="width:100%;justify-content:center;">
+            <i class="fab fa-whatsapp"></i> WhatsApp ile Gönder
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo-f">Selam ✦</div>
+  <p>Güzellik Salonu</p>
+  <p style="margin-top:8px;"><a href="tel:+905465655980">+90 546 565 59 80</a></p>
+  <p style="margin-top:16px;font-size:.8rem;opacity:.6;">© 2024 Selam Güzellik Salonu. Tüm hakları saklıdır.</p>
+</footer>
+
+<a href="https://wa.me/905465655980" class="wa-float" target="_blank" aria-label="WhatsApp ile iletişim">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', function() {
+  navLinks.classList.toggle('active');
+});
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    navLinks.classList.remove('active');
+  });
+});
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = this.querySelector('input[type="text"]').value;
+  const phone = this.querySelector('input[type="tel"]').value;
+  const msg = this.querySelector('textarea').value;
+  const text = encodeURIComponent('Merhaba, randevu almak istiyorum.\nAd: ' + name + '\nTelefon: ' + phone + '\nMesaj: ' + msg);
+  window.open('https://wa.me/905465655980?text=' + text, '_blank');
+});
+</script>
+</body>
+</html>
