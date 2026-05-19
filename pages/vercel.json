@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "denizyuzmeokullari.landingmate.site"
+        }
+      ],
+      "destination": "/pages/p_905465655980_1779132391078.html"
+    }
+  ]
+}
