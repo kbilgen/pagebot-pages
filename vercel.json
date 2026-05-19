@@ -5,6 +5,16 @@
       "has": [
         {
           "type": "host",
+          "value": "selam.landingmate.site"
+        }
+      ],
+      "destination": "/pages/p_905465655980_1779207973831.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
           "value": "denizyuzmeokullari.landingmate.site"
         }
       ],
