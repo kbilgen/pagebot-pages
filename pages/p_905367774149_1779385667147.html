@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terzi Nurhan – Tuhafiye</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);z-index:1000;border-bottom:1px solid #f0ece8;padding:0 5%}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Playfair Display',serif;font-size:1.4rem;color:#2c1810;letter-spacing:1px}
+.logo span{color:#b8860b}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:500;color:#444;transition:color .2s}
+.nav-links a:hover{color:#b8860b}
+.hamburger{display:none;background:none;border:none;cursor:pointer;font-size:1.4rem;color:#2c1810}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#fdf8f0 0%,#f5ede0 40%,#ede0d0 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(184,134,11,.12) 0%,transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(184,134,11,.08) 0%,transparent 70%);border-radius:50%}
+.hero-badge{display:inline-block;background:linear-gradient(90deg,#b8860b,#d4a017);color:#fff;font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:20px;margin-bottom:1.5rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.2rem);color:#2c1810;line-height:1.15;margin-bottom:1.2rem}
+.hero h1 em{font-style:normal;color:#b8860b}
+.hero p{font-size:1.05rem;color:#6b5a4e;max-width:480px;margin:0 auto 2.5rem;line-height:1.7}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,#b8860b,#d4a017);color:#fff;padding:14px 32px;border-radius:50px;font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(184,134,11,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(184,134,11,.45)}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;border:2px solid #b8860b;color:#b8860b;padding:12px 28px;border-radius:50px;font-weight:600;font-size:.95rem;margin-left:1rem;transition:all .2s}
+.btn-outline:hover{background:#b8860b;color:#fff}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+
+/* HIZMETLER */
+.services{padding:90px 5%;background:#fff}
+.section-label{text-align:center;font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#b8860b;margin-bottom:.6rem}
+.section-title{text-align:center;font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);color:#2c1810;margin-bottom:3.5rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.8rem;max-width:960px;margin:0 auto}
+.card{background:linear-gradient(145deg,#fdf8f0,#f9f1e4);border:1px solid #ede0cc;border-radius:20px;padding:2.2rem 1.8rem;text-align:center;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(184,134,11,.15)}
+.card-icon{width:64px;height:64px;background:linear-gradient(135deg,#b8860b,#d4a017);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.6rem;color:#fff}
+.card h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:#2c1810;margin-bottom:.6rem}
+.card p{font-size:.88rem;color:#7a6a5e;line-height:1.6}
+
+/* HAKKIMIZDA */
+.about{padding:90px 5%;background:linear-gradient(135deg,#2c1810 0%,#4a2c1a 100%);color:#fff;text-align:center}
+.about .section-label{color:#d4a017}
+.about .section-title{color:#fff;margin-bottom:1.5rem}
+.about-text{font-size:1.05rem;color:#d4c4b8;max-width:560px;margin:0 auto 2.5rem;line-height:1.8}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem;margin-top:2rem}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;color:#d4a017;font-weight:700}
+.stat-label{font-size:.8rem;color:#c4b0a4;letter-spacing:1px;text-transform:uppercase;margin-top:.2rem}
+
+/* İLETİŞİM */
+.contact{padding:90px 5%;background:#fdf8f0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:860px;margin:0 auto}
+.contact-card{background:#fff;border:1px solid #ede0cc;border-radius:20px;padding:2rem;display:flex;align-items:center;gap:1.2rem;transition:box-shadow .2s}
+.contact-card:hover{box-shadow:0 8px 30px rgba(184,134,11,.12)}
+.contact-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.icon-phone{background:linear-gradient(135deg,#b8860b,#d4a017);color:#fff}
+.icon-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff}
+.contact-info h4{font-size:.85rem;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem}
+.contact-info a{font-size:1rem;font-weight:600;color:#2c1810;transition:color .2s}
+.contact-info a:hover{color:#b8860b}
+.contact-form{max-width:860px;margin:2.5rem auto 0;background:#fff;border:1px solid #ede0cc;border-radius:20px;padding:2.2rem}
+.contact-form h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#2c1810;margin-bottom:1.5rem;text-align:center}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group label{font-size:.82rem;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:.5px}
+.form-group input,.form-group textarea{border:1.5px solid #e8ddd0;border-radius:10px;padding:11px 14px;font-size:.92rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;background:#fdf8f0}
+.form-group input:focus,.form-group textarea:focus{border-color:#b8860b}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-submit{width:100%;margin-top:.5rem}
+
+/* FOOTER */
+footer{background:#1a0f08;color:#c4b0a4;text-align:center;padding:2rem 5%}
+footer .logo{color:#d4a017;font-size:1.2rem;margin-bottom:.5rem;display:block}
+footer p{font-size:.82rem;color:#7a6a5e}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:9999;width:56px;height:56px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+
+/* MOBİL */
+@media(max-width:768px){
+.hamburger{display:block}
+.nav-links{display:none;flex-direction:column;position:absolute;top:64px;left:0;width:100%;background:#fff;padding:1.2rem 5%;border-bottom:1px solid #f0ece8;gap:1rem}
+.nav-links.active{display:flex}
+.btn-outline{margin-left:0}
+.contact-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.stats{gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Terzi <span>Nurhan</span></div>
+    <button class="hamburger" aria-label="Menüyü aç"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hizmetler">Hizmetler</a></li>
+      <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div>
+    <div class="hero-badge">✂️ Tuhafiye & Terzilik</div>
+    <h1>Kaliteli Dikiş,<br><em>Özenli Hizmet</em></h1>
+    <p>Her ihtiyacınız için doğru malzeme, her dikişte mükemmel işçilik.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/905367774149" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp'tan Yazın</a>
+      <a href="#hizmetler" class="btn-outline"><i class="fas fa-scissors"></i> Hizmetlerimiz</a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="hizmetler">
+  <div class="section-label">Ne Yapıyoruz</div>
+  <h2 class="section-title">Hizmetlerimiz</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-scissors"></i></div>
+      <h3>Terzilik & Tadilat</h3>
+      <p>Kıyafetlerinizi bedeninize özel olarak dikip tadilatını profesyonelce gerçekleştiriyoruz.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-spool"></i></div>
+      <h3>Tuhafiye Malzemeleri</h3>
+      <p>İplik, fermuar, düğme, kumaş ve tüm dikiş malzemelerini geniş çeşitlilikte sunuyoruz.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-star"></i></div>
+      <h3>Özel Sipariş Dikimi</h3>
+      <p>Düğün, nişan veya özel günleriniz için hayalinizdeki kıyafeti sizin için tasarlıyoruz.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="hakkimizda">
+  <div class="section-label">Biz Kimiz</div>
+  <h2 class="section-title">Hakkımızda</h2>
+  <p class="about-text">Yıllarca süren deneyimimiz ve müşteri memnuniyetine verdiğimiz önemle, her dikişte kaliteyi ve güveni ön planda tutuyoruz. Terzi Nurhan olarak işimizi sevgi ve özenle yapıyoruz.</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Yıl Deneyim</div></div>
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Mutlu Müşteri</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Özen & Kalite</div></div>
+  </div>
+</section>
+
+<section class="contact" id="iletisim">
+  <div class="section-label">Ulaşın</div>
+  <h2 class="section-title">İletişim</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon icon-phone"><i class="fas fa-phone"></i></div>
+      <div class="contact-info">
+        <h4>Telefon</h4>
+        <a href="tel:+905367774149">+90 536 777 41 49</a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon icon-wa"><i class="fab fa-whatsapp"></i></div>
+      <div class="contact-info">
+        <h4>WhatsApp</h4>
+        <a href="https://wa.me/905367774149">+90 536 777 41 49</a>
+      </div>
+    </div>
+  </div>
+  <div class="contact-form">
+    <h3>Mesaj Gönderin</h3>
+    <form id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Adınız</label>
+          <input type="text" id="fname" placeholder="Adınız Soyadınız" required>
+        </div>
+        <div class="form-group">
+          <label>Telefon</label>
+          <input type="tel" id="fphone" placeholder="05XX XXX XX XX">
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:1rem">
+        <label>Mesajınız</label>
+        <textarea id="fmsg" placeholder="Hizmet veya ürün hakkında bilgi almak istiyorum..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary form-submit"><i class="fab fa-whatsapp"></i> WhatsApp ile Gönder</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <span class="logo">Terzi Nurhan</span>
+  <p>📞 <a href="tel:+905367774149" style="color:#b8860b">+90 536 777 41 49</a></p>
+  <p style="margin-top:.5rem">© 2024 Terzi Nurhan – Tüm hakları saklıdır.</p>
+</footer>
+
+<a href="https://wa.me/905367774149" class="wa-float" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  hamburger.innerHTML = navLinks.classList.contains('active')
+    ? '<i class="fas fa-times"></i>'
+    : '<i class="fas fa-bars"></i>';
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+  });
+});
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const msg = document.getElementById('fmsg').value.trim();
+  let text = 'Merhaba, Terzi Nurhan!';
+  if (name) text += '%0AAd: ' + encodeURIComponent(name);
+  if (phone) text += '%0ATelefon: ' + encodeURIComponent(phone);
+  if (msg) text += '%0AMesaj: ' + encodeURIComponent(msg);
+  window.open('https://wa.me/905367774149?text=' + text, '_blank');
+});
+</script>
+</body>
+</html>
