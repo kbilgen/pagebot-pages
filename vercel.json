@@ -5,6 +5,16 @@
       "has": [
         {
           "type": "host",
+          "value": "terzi-nurhan.landingmate.site"
+        }
+      ],
+      "destination": "/pages/p_905367774149_1779385667147.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
           "value": "selam.landingmate.site"
         }
       ],
